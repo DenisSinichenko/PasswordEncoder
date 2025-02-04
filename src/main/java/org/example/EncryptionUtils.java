@@ -12,7 +12,7 @@ public class EncryptionUtils {
     // Генерация ключа
     public static SecretKey generateKey() throws Exception {
         KeyGenerator keyGen = KeyGenerator.getInstance(ALGORITHM);
-        keyGen.init(128); // или 256
+        keyGen.init(128);
         return keyGen.generateKey();
     }
 
@@ -31,6 +31,7 @@ public class EncryptionUtils {
         byte[] decryptedData = cipher.doFinal(Base64.getDecoder().decode(encryptedData));
         return new String(decryptedData);
     }
+
     public static void main(String[] args) {
         try {
             String password = "123";
